@@ -21,7 +21,7 @@ router.get("/",async(req,res) =>{
         },
     })
     ////RETURN HTML ///
-    let apiFilms = fetch(`http://swapi.dev/api/film/?search=${input}`,{
+    let apiFilms = fetch(`http://swapi.dev/api/films/?search=${input}`,{
         method:"POST",
         headers: {
             'Accept': 'application/json',
@@ -49,27 +49,69 @@ router.get("/",async(req,res) =>{
             'Content-Type': 'application/json'
         },
     })
-    
-  Promise.all([apiPeople,apiPlanets,apiFilms,apiFourSpecies,apiVehicles,apiStartships])
-  .then(datas => {
-      datas.forEach(data =>{
-          if(data.headers.get('content-type') == "application/json"){
-              let result = data.json()
-              process(result)
-          }else{
-              return []
-          }
-      })
-    })
-.catch(err =>{
-    console.log(err)   
-})
+    let count = 0
+    let array = []
 
-let process = (prom) => {
-    prom.then(data =>{
-        console.log(data.results)
-    })
-}
+  Promise.all([apiPeople,apiPlanets,apiFilms,apiFourSpecies,apiVehicles,apiStartships])
+  .then( datas => Promise.all(datas.map(r => r.json())))
+  .then(data => data.forEach(element => {
+      if(element.count > 0){
+          array.push(element.results)
+      }else{
+
+      }
+  }))
+  .then(() => {
+      if(array.length > 0){
+          res.status(200).json({message:"success", data:array[0]})
+      }else{
+          res.status(400).json({message:`${input} not found`})
+      }
+  })
+
+
+
+//   .then(response => response.map(async r =>{
+//     const result = await r
+//     if(result.results.length > 0){
+//         return res.status(200).json({message:"hello"})
+//     }
+//   }))
+    
+    // {
+      
+    // datas.forEach( async data =>{
+    //           let result = await data.json()
+    //           if(result.results.length > 0){
+    //               process(result.results)
+    //           }else{
+    
+    //           }
+    //         //   process(result)
+    //   })
+    //   console.log(count)
+    //   console.log(array)
+    // })
+    // .catch(err =>{
+    // return res.status(400).json({message:err}) 
+    // })
+
+
+
+
+// let process = (prom) => {
+//     prom.then(data =>{
+//         if(data.results.length > 0){
+//         //     console.log("HELLO")
+//         //    return res.status(200).json({message:"success",data:data.results})
+//             console.log(data.results)
+//         }
+//         // console.log("BYE")
+//         // return res.status(400).json({message:`${input} not found`})
+//     }).catch(err =>{
+//         return res.status(400).json({message:err})
+//     })
+// }
 
 
 
