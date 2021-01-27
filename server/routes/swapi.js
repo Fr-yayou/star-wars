@@ -3,9 +3,9 @@ const router = express.Router()
 const fetch = require('node-fetch');
 
 
-router.get("/",async(req,res) =>{
+router.get("/post",async(req,res) =>{
     
-    let input = "Luke"
+    let input = "tatooine"
     let apiPeople = fetch(`http://swapi.dev/api/people/?search=${input}`,{
         method:"POST",
         headers: {
@@ -20,7 +20,6 @@ router.get("/",async(req,res) =>{
             'Content-Type': 'application/json'
         },
     })
-    ////RETURN HTML ///
     let apiFilms = fetch(`http://swapi.dev/api/films/?search=${input}`,{
         method:"POST",
         headers: {
@@ -49,12 +48,12 @@ router.get("/",async(req,res) =>{
             'Content-Type': 'application/json'
         },
     })
-    let count = 0
+
     let array = []
 
-  Promise.all([apiPeople,apiPlanets,apiFilms,apiFourSpecies,apiVehicles,apiStartships])
-  .then( datas => Promise.all(datas.map(r => r.json())))
-  .then(data => data.forEach(element => {
+    Promise.all([apiPeople ,apiPlanets ,apiFilms ,apiFourSpecies ,apiVehicles ,apiStartships])
+    .then( datas => Promise.all(datas.map(r => r.json())))
+    .then(data => data.forEach(element => {
       if(element.count > 0){
           array.push(element.results)
       }else{
@@ -63,78 +62,41 @@ router.get("/",async(req,res) =>{
   }))
   .then(() => {
       if(array.length > 0){
-          res.status(200).json({message:"success", data:array[0]})
+          res.status(200).json({message:"success", data:array})
       }else{
           res.status(400).json({message:`${input} not found`})
       }
   })
 
 
-
-//   .then(response => response.map(async r =>{
-//     const result = await r
-//     if(result.results.length > 0){
-//         return res.status(200).json({message:"hello"})
-//     }
-//   }))
-    
-    // {
-      
-    // datas.forEach( async data =>{
-    //           let result = await data.json()
-    //           if(result.results.length > 0){
-    //               process(result.results)
-    //           }else{
-    
-    //           }
-    //         //   process(result)
-    //   })
-    //   console.log(count)
-    //   console.log(array)
-    // })
-    // .catch(err =>{
-    // return res.status(400).json({message:err}) 
-    // })
-
-
-
-
-// let process = (prom) => {
-//     prom.then(data =>{
-//         if(data.results.length > 0){
-//         //     console.log("HELLO")
-//         //    return res.status(200).json({message:"success",data:data.results})
-//             console.log(data.results)
-//         }
-//         // console.log("BYE")
-//         // return res.status(400).json({message:`${input} not found`})
-//     }).catch(err =>{
-//         return res.status(400).json({message:err})
-//     })
-// }
-
-
-
 })
 
+router.get("/", async (req,res) =>{
+    try{
+        const urlArray = []
+        //Fetch all the url//
+        const responseUrl = await fetch("https://swapi.dev/api/")
+        const resultUrl = await responseUrl.json()
+        for(const [key,value] of Object.entries(resultUrl)){
+            urlArray.push(value)
+        }
 
 
+        Promise.all(urlArray.map( async url => {
+            const response = await fetch(url)
+            const result = await response.json()
+            return result
+        })).then(datas =>{
+            if(!datas){
+                res.status(400).json({message:"Ressources not found"})
+            }
+            res.status(200).json({message:"Success",data:datas})
+        })
 
-////TEST//
-
-// apiPeople
-// .then(res => res.json())
-// .then(res => console.log(res.results))
-
-////TEST//
-// router.get("/",async(req,res) =>{
-//     const url = []
-//    res = await fetch("https://swapi.dev/api/")
-//    result = await res.json()
-//    for(n in result){
-//        console.log(n)
-//    }
-// })
+    }catch(err){
+        res.status(400).json({mesage:err})
+    }
+})
 
 
 module.exports = router
