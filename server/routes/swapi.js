@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 
 router.get("/post",async(req,res) =>{
     
-    let input = "tatooine"
+    let input = "luke"
     let apiPeople = fetch(`http://swapi.dev/api/people/?search=${input}`,{
         method:"POST",
         headers: {

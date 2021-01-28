@@ -9,16 +9,6 @@ const NavBar = () =>{
             <div className="container-logo">
                 <img src={logo} alt="logo"/>
             </div>
-            <div className="container-link">
-                <ul className="wrapper-link">
-                    <li>People</li>
-                    <li>Film</li>
-                    <li>Starships</li>
-                    <li>Vehicles</li>
-                    <li>Species</li>
-                    <li>Planets</li>
-                </ul>
-            </div>
         </div>
     )
 }
