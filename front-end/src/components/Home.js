@@ -53,9 +53,11 @@ class Home extends Component {
                      ):(
                      <div className="all-cards">
                          {
-                         this.props.datas.map(data =>(
+                         this.props.search.length === 0 ? this.props.datas.map(data =>(
                                 <Card key={data.count} data={data}/>
-                            ))
+                            )):(
+                                <h1>Hello</h1>
+                            )
                          }
                      </div>
                      )
