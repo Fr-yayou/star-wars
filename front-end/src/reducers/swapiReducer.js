@@ -1,25 +1,24 @@
-import {TOGGLE_MESSAGE} from "../actions/actions"
-import { GET_SWAPI } from "../actions/actions"
+import { GET_SWAPI,GET_SEARCH } from "../actions/actions"
 
 const initalState = {
-    messageVisibility: false,
-    swapi:[]
+    swapi:[],
+    search:[]
 
 };
 
 const toggleReducer = (state = initalState, action) => {
-    const { type,data} = action
+    const { type,data,payload} = action
     switch(type) {
-        case TOGGLE_MESSAGE:
-            return {
-                ...state,
-                messageVisibility:!state.messageVisibility
-            }
 
         case GET_SWAPI:
             return{
                 ...state,
                 swapi:data
+            }
+        case GET_SEARCH:
+            return{
+                ...state,
+                search:payload
             }
 
         default:

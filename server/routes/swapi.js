@@ -3,45 +3,44 @@ const router = express.Router()
 const fetch = require('node-fetch');
 
 
-router.get("/post",async(req,res) =>{
-    
-    let input = "luke"
-    let apiPeople = fetch(`http://swapi.dev/api/people/?search=${input}`,{
+router.post("/post",async(req,res) =>{
+    const {string} = req.body
+    let apiPeople = fetch(`http://swapi.dev/api/people/?search=${string}`,{
         method:"POST",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
     })
-    let apiPlanets = fetch(`http://swapi.dev/api/planets/?search=${input}`,{
+    let apiPlanets = fetch(`http://swapi.dev/api/planets/?search=${string}`,{
         method:"POST",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
     })
-    let apiFilms = fetch(`http://swapi.dev/api/films/?search=${input}`,{
+    let apiFilms = fetch(`http://swapi.dev/api/films/?search=${string}`,{
         method:"POST",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
     })
-    let apiFourSpecies = fetch(`http://swapi.dev/api/species/?search=${input}`,{
+    let apiFourSpecies = fetch(`http://swapi.dev/api/species/?search=${string}`,{
         method:"POST",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
     })
-    let apiVehicles = fetch(`http://swapi.dev/api/vehicles/?search=${input}`,{
+    let apiVehicles = fetch(`http://swapi.dev/api/vehicles/?search=${string}`,{
         method:"POST",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
     })
-    let apiStartships = fetch(`http://swapi.dev/api/starships/?search=${input}`,{
+    let apiStartships = fetch(`http://swapi.dev/api/starships/?search=${string}`,{
         method:"POST",
         headers: {
             'Accept': 'application/json',
