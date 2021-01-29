@@ -86,7 +86,7 @@ router.get("/", async (req,res) =>{
             const result = await response.json()
             return result
         })).then(datas =>{
-            if(!datas){
+            if(datas.length < 0){
                 res.status(400).json({message:"Ressources not found"})
             }
             res.status(200).json({message:"Success",data:datas})

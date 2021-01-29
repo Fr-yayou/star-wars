@@ -1,6 +1,7 @@
 // action type constant variable to avoid typo mistake /
 export const GET_SWAPI = "GET_SWAPI"
 export const GET_SEARCH = "GET_SEARCH"
+export const RESET_SEARCH = "RESET_SEARCH"
 
 
 export const getSwapi = () => {
@@ -31,8 +32,15 @@ export const getSearch = (search) => {
             type:"GET_SEARCH",
             payload:resultSearch.data[0]
         })
+    }
+}
 
-        ///dispatch the action to the reducer//
+export const resetSearch = () => {
+    return async function (dispatch){
+        return dispatch({
+            type:"RESET_SEARCH",
+            reset:[]
+        })
     }
 }
 

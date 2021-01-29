@@ -1,4 +1,4 @@
-import { GET_SWAPI,GET_SEARCH } from "../actions/actions"
+import { GET_SWAPI,GET_SEARCH,RESET_SEARCH } from "../actions/actions"
 
 const initalState = {
     swapi:[],
@@ -19,6 +19,12 @@ const toggleReducer = (state = initalState, action) => {
             return{
                 ...state,
                 search:payload
+            }
+        
+        case RESET_SEARCH:
+            return{
+                ...state,
+                search:initalState.search
             }
 
         default:

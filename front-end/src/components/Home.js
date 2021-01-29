@@ -3,7 +3,7 @@ import "../styles/Card.css"
 import Card from "../components/Card"
 import { connect } from "react-redux"
 import {bindActionCreators } from "redux"
-import {getSwapi,getSearch} from "../actions/actions"
+import {getSwapi,getSearch,resetSearch} from "../actions/actions"
 
 
 class Home extends Component {
@@ -33,15 +33,19 @@ class Home extends Component {
         this.setState({search:""})
 
     }
+    searchReset = () => {
+        this.props.resetSearch()
+    }
 
     render() {
         return (
             <div className="container-home">
                 <div className="container-input">
                     <form onSubmit={this.getSearch}>
-                        <input type="text" name="search" onChange={this.handleChange}  value={this.state.search} />
-                        <input type="submit" value="Search"/>
+                        <input type="text" name="search" onChange={this.handleChange}  value={this.state.search}/>
+                        {this.props.search.length === 0 &&  <input type="submit" value="Search"/> }
                     </form>
+                    {this.props.search.length !== 0 && <button onClick={this.searchReset}>Reset</button>}
                 </div>
                  {
                         this.props.datas.length === 0 ?(
@@ -62,11 +66,15 @@ class Home extends Component {
 }
 
 const  mapStateToProp = state => ({
-    datas:state.swapi.swapi
+    datas:state.swapi.swapi,
+    search:state.swapi.search
 })
 const mapDispatch = (dispatch) => bindActionCreators({
     getSwapi,
-    getSearch
+    getSearch,
+    resetSearch
+
+    
 },dispatch)
 
 export default connect(mapStateToProp,mapDispatch)(Home)
