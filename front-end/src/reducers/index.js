@@ -3,11 +3,11 @@ import { combineReducers } from "redux"
 
 
 //Import reducer //
-import message from "./reducer"
+import swapi from "./swapiReducer"
 
 
 const rootReducer = combineReducers({
-    message
+    swapi
 })
-
+ 
 export default rootReducer
