@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from  'react-router-dom'
 import NavBar from "./components/NavBar"
 import Home from "./components/Home"
 import { Provider } from "react-redux"
+import People from "./components/Result/People"
 
 
 import store from "./store"
@@ -16,6 +17,7 @@ function App() {
           <NavBar/>
           <Switch>
             <Route path="/" exact component={Home}/>
+            <Route path="/people" exact component={People}/>
           </Switch>
         </div>
       </Router>

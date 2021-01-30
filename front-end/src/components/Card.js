@@ -1,5 +1,6 @@
 import React from "react"
 import styleCard from "../styles/Card.module.css"
+import {Link} from "react-router-dom"
 
 
 const Card = ({data}) => {
@@ -18,7 +19,12 @@ const Card = ({data}) => {
                         <h1 className={styleCard.cartTitle}>People</h1>
                         <div className={styleCard.cardBody}>
                         {data.results.map((result,index) =>(
-                        <h4 key={index}>{result.name}</h4>
+                            <Link key={index} to={{
+                                pathname:"/people",
+                                query:{data:JSON.stringify(result)}
+                            }}>
+                                <h4>{result.name}</h4>
+                            </Link>
                         ))}  
                         </div>
                     </div>
