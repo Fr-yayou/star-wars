@@ -58,6 +58,7 @@
     justify-content: center;
     border:5px solid #ffc909;
     background-color: black;
+    opacity: 0.8;
 }
 
 .cartTitle{

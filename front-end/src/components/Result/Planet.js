@@ -8,24 +8,24 @@ const Planet = ({planet}) => {
                 <h1 className={stylePlanet.title}>{planet.name}</h1>
             <div className={stylePlanet.container}>
                 <div className={stylePlanet.containerProperty}>
-                    <p className={stylePlanet.property}>Climat:</p>
-                    <p className={stylePlanet.property}>Diameter:</p>
-                    <p className={stylePlanet.property}>Gravity:</p>
-                    <p className={stylePlanet.property}>Orbital period:</p>
-                    <p className={stylePlanet.property}>population:</p>
-                    <p className={stylePlanet.property}>Rotation period:</p>
-                    <p className={stylePlanet.property}>Surface_water:</p>
-                    <p className={stylePlanet.property}>Terrain:</p>
+                    <p>Climat:</p>
+                    <p>Diameter:</p>
+                    <p>Gravity:</p>
+                    <p>Orbital period:</p>
+                    <p>population:</p>
+                    <p>Rotation period:</p>
+                    <p>Surface_water:</p>
+                    <p>Terrain:</p>
                 </div>
                 <div className={stylePlanet.containerDetail}>
-                    <p className={stylePlanet.detail}>{planet.climate}</p>
-                    <p className={stylePlanet.detail}>{planet.diameter}</p>
-                    <p className={stylePlanet.detail}>{planet.gravity}</p>
-                    <p className={stylePlanet.detail}>{planet.orbital_period}</p>
-                    <p className={stylePlanet.detail}>{planet.population}</p>
-                    <p className={stylePlanet.detail}>{planet.rotation_period}</p>
-                    <p className={stylePlanet.detail}>{planet.surface_water}</p>
-                    <p className={stylePlanet.detail}>{planet.terrain}</p>
+                    <p>{planet.climate}</p>
+                    <p>{planet.diameter}</p>
+                    <p>{planet.gravity}</p>
+                    <p>{planet.orbital_period}</p>
+                    <p>{planet.population}</p>
+                    <p>{planet.rotation_period}</p>
+                    <p>{planet.surface_water}</p>
+                    <p>{planet.terrain}</p>
                 </div>
             </div>
         </div>

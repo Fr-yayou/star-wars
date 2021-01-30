@@ -21,20 +21,20 @@
 
 }
 
-.property{
+.containerProperty p{
     color:#ffc909;
     margin-top: 20px;
     font-size: 25px;
-    font-weight: 700;  
+    font-weight: 700;   
 }
 
-.detail{
+.containerDetail p {
     color:#ffc909;
     margin-top: 20px;
     font-size: 25px;
-    font-weight: 700;  
-
+    font-weight: 700;    
 }
+
 
 
 .title{
