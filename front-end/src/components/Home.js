@@ -55,17 +55,23 @@ class Home extends Component {
                     </form>
                     {this.props.search.length !== 0 && <button className={styleCard.btnReset} onClick={this.searchReset}>Reset</button>}
                 </div>
+                <div className={styleCard.notFound}>
+                        {this.props.search.message && <p>{this.props.search.message}</p>}
+                </div>
                  {
                         this.props.datas.length === 0 ?(
                          <div style={{color:"white"}}>Bye</div>
                      ):(
                      <div className={styleCard.allCards}>
+                         
                          {
-                         this.props.search.length === 0 ? this.props.datas.map(data =>(
-                                <Card key={data.count} data={data}/>
-                            )):(
-                                <ResultSearch data={this.props.search}/>
-                            )
+                            !this.props.search.message && this.props.search.length !== 0 ?(
+                                <ResultSearch  data={this.props.search}/>
+                             ):(
+                                 this.props.datas.map(data =>(
+                                         <Card key={data.count} data={data}/>
+                                ))
+                             )
                          }
                      </div>
                      )

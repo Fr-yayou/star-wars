@@ -63,7 +63,7 @@ router.post("/post",async(req,res) =>{
       if(array.length > 0){
           res.status(200).json({message:"success", data:array})
       }else{
-          res.status(400).json({message:`${input} not found`})
+          res.status(400).json({message:`${string} not found`})
       }
   })
 

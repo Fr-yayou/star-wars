@@ -29,10 +29,17 @@ export const getSearch = (search) => {
             body:JSON.stringify(search)
         })
         const resultSearch = await res.json()
+        console.log(resultSearch)
+        if(resultSearch.message !== "success"){
+            return dispatch({
+                type:"GET_SEARCH",
+                payload:resultSearch
+            })
+        }
         return dispatch({
-            type:"GET_SEARCH",
-            payload:resultSearch.data[0]
-        })
+                type:"GET_SEARCH",
+                payload:resultSearch.data[0]
+            })
     }
 }
 

@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .form{
@@ -52,10 +52,12 @@
 /* style for single card */
 
 .containerCard{
-    width: 200px;
-    height: 250px;
+    width: 500px;
+    height: 350px;
     display: flex;
     justify-content: center;
+    border:5px solid #ffc909;
+    background-color: black;
 }
 
 .cartTitle{
@@ -66,4 +68,20 @@
 .imageCard{
     height: 250px;
     width: 200px;
+}
+
+.notFound{
+    color:#ffc909;
+    font-size:20px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.routerLink{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
