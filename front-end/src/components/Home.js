@@ -69,7 +69,9 @@ class Home extends Component {
                                 <ResultSearch  data={this.props.search}/>
                              ):(
                                  this.props.datas.map(data =>(
-                                         <Card key={data.count} data={data}/>
+                                 
+                                 <Card key={data.count} data={data}/>
+                                 
                                 ))
                              )
                          }
