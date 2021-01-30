@@ -1,0 +1,69 @@
+.containerHome{
+    margin-left: 25px;
+    margin-right: 25px
+}
+
+/* Input search styling */
+
+.containerForm{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.form{
+    display: flex;
+}
+
+
+.inputSearch{
+    width: 500px;
+    height: 40px;
+    text-indent: 30px;
+}
+.searchLogo{
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.inputSearch:focus{
+    outline: none;
+}
+
+.btnReset{
+    width: 100px;
+}
+.btnSearch{
+    width: 100px;
+}
+
+/*  */
+
+
+
+.allCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+/* style for single card */
+
+.containerCard{
+    width: 200px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+}
+
+.cartTitle{
+    position: absolute;
+    color:white
+}
+
+.imageCard{
+    height: 250px;
+    width: 200px;
+}

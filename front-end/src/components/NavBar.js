@@ -1,13 +1,13 @@
 import React from "react"
-import "../styles/NavBar.css"
 import logo from "../assets/star-wars.jpg"
+import NavbarCss from "../styles/NavBar.module.css"
 
 const NavBar = () =>{
 
     return(
-        <div className="container-navBar">
-            <div className="container-logo">
-                <img src={logo} alt="logo"/>
+        <div className={NavbarCss.containerNavBar}>
+            <div className={NavbarCss.containerLogo}>
+                <img className={NavbarCss.imageLogo} src={logo} alt="logo"/>
             </div>
         </div>
     )

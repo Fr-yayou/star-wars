@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import "../styles/Card.css"
+import styleCard from "../styles/Card.module.css"
 import Card from "../components/Card"
 import { connect } from "react-redux"
 import {bindActionCreators } from "redux"
 import {getSwapi,getSearch,resetSearch} from "../actions/actions"
+import search from "../assets/search.png"
+import ResultSearch from "./ResultSearch"
 
 
 class Home extends Component {
@@ -25,6 +27,9 @@ class Home extends Component {
     }
 
     getSearch = (e) =>{
+        if(this.state.search === ""){
+            return null
+        }
         e.preventDefault()
         let searchString ={
             string: this.state.search
@@ -39,24 +44,27 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="container-home">
-                <div className="container-input">
-                    <form onSubmit={this.getSearch}>
-                        <input type="text" name="search" onChange={this.handleChange}  value={this.state.search}/>
-                        {this.props.search.length === 0 &&  <input type="submit" value="Search"/> }
+            <div className={styleCard.containerHome}>
+                <div className={styleCard.containerForm}>
+                    <form className={styleCard.form} onSubmit={this.getSearch}>
+                        <div>
+                            <img className={styleCard.searchLogo} src={search} alt="search"/>
+                            <input className={styleCard.inputSearch} type="text" name="search" onChange={this.handleChange}  value={this.state.search}/>
+                        </div>
+                        {this.props.search.length === 0 &&  <input className={styleCard.btnSearch}  type="submit" value="Search"/> }
                     </form>
-                    {this.props.search.length !== 0 && <button onClick={this.searchReset}>Reset</button>}
+                    {this.props.search.length !== 0 && <button className={styleCard.btnReset} onClick={this.searchReset}>Reset</button>}
                 </div>
                  {
                         this.props.datas.length === 0 ?(
                          <div style={{color:"white"}}>Bye</div>
                      ):(
-                     <div className="all-cards">
+                     <div className={styleCard.allCards}>
                          {
                          this.props.search.length === 0 ? this.props.datas.map(data =>(
                                 <Card key={data.count} data={data}/>
                             )):(
-                                <h1>Hello</h1>
+                                <ResultSearch data={this.props.search}/>
                             )
                          }
                      </div>

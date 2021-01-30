@@ -1,0 +1,46 @@
+
+.containerPeople{
+    width: 600px;
+    border:4px solid #ffc909
+}
+.container{
+    display:flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+.containerDetail{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+.containerProperty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 100px;
+
+}
+
+.property{
+    color:#ffc909;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 700;  
+}
+
+.detail{
+    color:#ffc909;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 700;  
+
+}
+
+
+.title{
+    color:white;
+    text-align: center;
+    font-weight: 700; 
+    font-size: 60px; 
+    padding-top: 30px;
+}
