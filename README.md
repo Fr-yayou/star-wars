@@ -16,7 +16,7 @@ This website shows the datas from the api and display the details of the datas a
     yarn run dev
 
 ```
-Back-end runing on "http://localhost:4000"
+Back-end runing on http://localhost:4000
 
 ### Second, run the front-end:
 
@@ -26,7 +26,7 @@ Back-end runing on "http://localhost:4000"
     # or
     yarn run dev
 ```
-Front-end runing on "http://localhost:3000"
+Front-end runing on http://localhost:3000
 
 ## Learn More
 
