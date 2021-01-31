@@ -69,4 +69,9 @@
     align-items: center;
     padding-right:50px
 }
+.extraContainer{
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+}
 

@@ -60,7 +60,7 @@ class Home extends Component {
                 </div>
                  {
                         this.props.datas.length === 0 ?(
-                         <div style={{color:"white"}}>Bye</div>
+                         <div style={{color:"white"}}>Loading...</div>
                      ):(
                      <div className={styleCard.allCards}>
                          

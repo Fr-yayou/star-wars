@@ -10,7 +10,12 @@ const Card = ({data}) => {
                     <h1 className={styleCard.cartTitle}>Movies</h1>
                     <div className={styleCard.cardBody}>
                         {data.results.map((result,index) =>(
-                        <h4 key={index}>{result.title}</h4>
+                            <Link key={index} to={{
+                                pathname:"/movie",
+                                query:{data:JSON.stringify(result)}
+                            }}>
+                                <h4>{result.title}</h4>
+                            </Link>
                         ))}  
                     </div>
                     </div>
@@ -33,7 +38,12 @@ const Card = ({data}) => {
                         <h1 className={styleCard.cartTitle}>Species</h1>
                         <div className={styleCard.cardBody}>
                         {data.results.map((result,index) =>(
-                        <h4 key={index}>{result.name}</h4>
+                            <Link key={index} to={{
+                                pathname:"/species",
+                                query:{data:JSON.stringify(result)}
+                            }}>
+                               <h4>{result.name}</h4>
+                            </Link>
                         ))}  
                         </div>
                     </div>
@@ -42,7 +52,12 @@ const Card = ({data}) => {
                         <h1 className={styleCard.cartTitle}>Vehicles</h1>
                         <div className={styleCard.cardBody}>
                         {data.results.map((result,index) =>(
-                        <h4 key={index}>{result.name}</h4>
+                            <Link key={index} to={{
+                                pathname: "/vehicles",
+                                query:{data:JSON.stringify(result)}
+                            }}>
+                                <h4 key={index}>{result.name}</h4>
+                            </Link>
                         ))}  
                         </div>
                     </div>
@@ -51,7 +66,12 @@ const Card = ({data}) => {
                         <h1 className={styleCard.cartTitle}>Starships</h1>
                         <div className={styleCard.cardBody}>
                         {data.results.map((result,index) =>(
-                        <h4 key={index}>{result.name}</h4>
+                            <Link key={index} to={{
+                                pathname:"/starship",
+                                query:{data:JSON.stringify(result)}
+                            }}>
+                                <h4>{result.name}</h4>
+                            </Link>
                         ))}  
                         </div>
                     </div>
@@ -60,7 +80,12 @@ const Card = ({data}) => {
                         <h1 className={styleCard.cartTitle}>Planets</h1>
                         <div className={styleCard.cardBody}>
                         {data.results.map((result,index) =>(
-                        <h4 key={index}>{result.name}</h4>
+                            <Link key={index} to={{
+                                pathname:"/planet",
+                                query:{data:JSON.stringify(result)}
+                            }}>
+                                 <h4>{result.name}</h4>
+                            </Link>
                         ))}  
                         </div>
                     </div>

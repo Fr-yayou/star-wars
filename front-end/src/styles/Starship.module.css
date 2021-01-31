@@ -1,19 +1,24 @@
-.containerPlanet{
-    width: 600px;
+.containerPeople{
+    width: 900px;
     border:4px solid #ffc909;
-    border-radius: 100%;
     background-color: black;
     opacity: 0.7;
 }
 .container{
     display:flex;
     justify-content: center;
-    padding-bottom: 60px;
+    padding-bottom: 30px;
 }
 .containerDetail{
     display: flex;
     flex-direction: column;
     align-items: center; 
+}
+.containerDetail p{
+    color:#ffc909;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 700;  
 }
 .containerProperty{
     display: flex;
@@ -23,20 +28,12 @@
 
 }
 
-.containerProperty p{
+.containerProperty p {
     color:#ffc909;
     margin-top: 20px;
     font-size: 25px;
-    font-weight: 700;   
+    font-weight: 700;  
 }
-
-.containerDetail p {
-    color:#ffc909;
-    margin-top: 20px;
-    font-size: 25px;
-    font-weight: 700;    
-}
-
 
 
 .title{
@@ -46,9 +43,9 @@
     font-size: 60px; 
     padding-top: 30px;
 }
-
 .extraContainer{
     display: flex;
     justify-content: center;
-    padding-top: 80px;
+    padding-top: 20px;
+    padding-bottom: 80px;
 }
